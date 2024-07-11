@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-watermark {
+  background-image: url('https://ik.imagekit.io/laxmifinance/IMG-20240603-WA0018.jpg?updatedAt=1720653923997'); 
+height:250px auto;
+
+}
