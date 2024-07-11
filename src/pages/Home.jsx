@@ -7,9 +7,9 @@ function Home() {
       <div className="flex justify-center mt-8">
         <div>
           <img
-            src="https://ik.imagekit.io/laxmifinance/Abhishek_kumar_founder_ad_groups?updatedAt=1720652551962"
-            alt="Keshav Kumar"
-            className="w-50 h-60 rounded-full shadow-lg"
+            src="https://ik.imagekit.io/laxmifinance/abhishek%20kumar.png?updatedAt=1720687001422"
+            alt="Mr Abhishek Kumar"
+            className="w-50 h-60 rounded-full border border-1"
           />
           <p className="text-center mt-2 font-semibold">Mr. Abhishek Kumar</p>
 
