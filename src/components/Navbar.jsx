@@ -32,6 +32,13 @@ function Navbar() {
           <Link to="/Gallary" className="text-white hover:text-gray-300">
             Gallary
           </Link>
+
+          <Link
+            to="https://ad-finance.netlify.app/"
+            className="text-white hover:text-gray-300"
+          >
+            Login
+          </Link>
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)}>
@@ -87,6 +94,17 @@ function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   Gallary
+                </Link>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  to="https://ad-finance.netlify.app/"
+                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
                 </Link>
               )}
             </Menu.Item>
