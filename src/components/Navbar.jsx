@@ -26,7 +26,7 @@ function Navbar() {
   // Render menu items
   const renderMenuItems = () => {
     return menuItems.map((item) => (
-      <Menu.Item key={item.key}>
+      <Menu.Item key={item.key} onClick={() => setCollapsed(true)}>
         {item.external ? (
           <a
             href={item.link}
@@ -46,8 +46,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-500 ">
-      <div className="container mx-auto  px-4 py-3 flex justify-between items-center">
+    <nav className="bg-blue-500">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="text-white text-xl font-bold">
           <Link to="/">
             <img
@@ -88,11 +88,10 @@ function Navbar() {
           </button>
         </div>
       </div>
-      <div className="md:hidden ">
+      <div className="md:hidden">
         <Drawer
           placement="right"
           closable={false}
-          onClose={() => setCollapsed(true)}
           visible={!collapsed}
           bodyStyle={{ padding: 0 }}
         >
