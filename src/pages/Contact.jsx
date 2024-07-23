@@ -101,11 +101,7 @@ function Contact() {
           >
             <Input />
           </Form.Item>
-          {location && (
-            <Form.Item label="Location" className="text-gray-600">
-              {location.city}, {location.state}, {location.country}
-            </Form.Item>
-          )}
+    
           <Form.Item
             name="message"
             label="Message"
