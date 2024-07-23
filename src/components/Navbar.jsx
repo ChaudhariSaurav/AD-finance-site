@@ -1,14 +1,53 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Menu, Drawer } from "antd";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const menuItems = [
+    { key: "home", label: "Home", link: "/" },
+    { key: "about", label: "About Us", link: "/about" },
+    { key: "contact", label: "Contact Us", link: "/contact" },
+    { key: "gallery", label: "Gallery", link: "/Gallary" },
+    {
+      key: "login",
+      label: "Login",
+      link: "https://ad-finance.netlify.app/",
+      external: true,
+    },
+  ];
+
+  // Render menu items
+  const renderMenuItems = () => {
+    return menuItems.map((item) => (
+      <Menu.Item key={item.key}>
+        {item.external ? (
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white"
+          >
+            {item.label}
+          </a>
+        ) : (
+          <Link to={item.link} className="text-white">
+            {item.label}
+          </Link>
+        )}
+      </Menu.Item>
+    ));
+  };
 
   return (
-    <nav className="bg-blue-500">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="bg-blue-500 ">
+      <div className="container mx-auto  px-4 py-3 flex justify-between items-center">
         <div className="text-white text-xl font-bold">
           <Link to="/">
             <img
@@ -20,97 +59,48 @@ function Navbar() {
           </Link>
         </div>
         <div className="hidden md:flex space-x-4">
-          <Link to="/" className="text-white hover:text-gray-300">
-            Home
-          </Link>
-          <Link to="/about" className="text-white hover:text-gray-300">
-            About Us
-          </Link>
-          <Link to="/contact" className="text-white hover:text-gray-300">
-            Contact Us
-          </Link>
-          <Link to="/Gallary" className="text-white hover:text-gray-300">
-            Gallary
-          </Link>
-
-          <Link
-            to="https://ad-finance.netlify.app/"
-            className="text-white hover:text-gray-300"
-          >
-            Login
-          </Link>
+          {menuItems.map((item) => (
+            <React.Fragment key={item.key}>
+              {item.external ? (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-300"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link to={item.link} className="text-white hover:text-gray-300">
+                  {item.label}
+                </Link>
+              )}
+            </React.Fragment>
+          ))}
         </div>
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? (
-              <XIcon className="h-6 w-6 text-white" />
+          <button onClick={toggleCollapsed}>
+            {collapsed ? (
+              <MenuOutlined className="h-6 w-6 text-white" />
             ) : (
-              <MenuIcon className="h-6 w-6 text-white" />
+              <CloseOutlined className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
       </div>
-      {isOpen && (
-        <div className="md:hidden">
-          <Menu>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/"
-                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Home
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/about"
-                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  About Us
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/contact"
-                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact Us
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/Gallary"
-                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Gallary
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="https://ad-finance.netlify.app/"
-                  className={`block px-4 py-2 text-white ${active ? "bg-blue-700" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Login
-                </Link>
-              )}
-            </Menu.Item>
+      <div className="md:hidden ">
+        <Drawer
+          placement="right"
+          closable={false}
+          onClose={() => setCollapsed(true)}
+          visible={!collapsed}
+          bodyStyle={{ padding: 0 }}
+        >
+          <Menu theme="dark" mode="inline">
+            {renderMenuItems()}
           </Menu>
-        </div>
-      )}
+        </Drawer>
+      </div>
     </nav>
   );
 }

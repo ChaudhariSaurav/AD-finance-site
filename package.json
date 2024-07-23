@@ -26,6 +26,11 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^1.0.6",
-    "react-router-dom": "^6.24.1"
+    "antd": "^5.19.3",
+    "emailjs": "^4.0.3",
+    "framer-motion": "^11.3.12",
+    "react-router-dom": "^6.24.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   }
 }

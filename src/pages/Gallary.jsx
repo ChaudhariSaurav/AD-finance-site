@@ -25,7 +25,7 @@ const Gallery = () => {
     {
       id: 4,
       imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_GiAlQZLi-_Yez85xVNrLwzX0W3ZFPMJ7qUDbVNGizdfi7GlWLaUsoNPU&s=10",
+        "https://ik.imagekit.io/laxmifinance/IMG_20240715_120140.jpg?updatedAt=1721025214146",
       caption: "Customer 4 - Meetings",
     },
   ];
