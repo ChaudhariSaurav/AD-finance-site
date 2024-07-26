@@ -46,7 +46,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-500">
+    <nav className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 ">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="text-white text-xl font-bold">
           <Link to="/">
