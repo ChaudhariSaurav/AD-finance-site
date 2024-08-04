@@ -5,10 +5,12 @@ import Footer from "../pages/footer";
 function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
+  const [loading, setLoading] = useState(false); // State to manage button loading
 
   const onFinish = async (values) => {
+    setLoading(true); // Set loading to true when form is submitted
     try {
-      const response = await fetch("https://formspree.io/f/mdknarlq", {
+      const response = await fetch("https://formspree.io/f/myzgwoeo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,6 +28,8 @@ function Contact() {
       console.error("Error sending email:", error.message);
       setFormError(true);
       message.error("Failed to send email. Please try again later.");
+    } finally {
+      setLoading(false); // Set loading to false after submission attempt
     }
     console.log("Received values:", values);
   };
@@ -136,7 +140,7 @@ function Contact() {
               <Input.TextArea id="message" rows={2} />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" size="large" htmlType="submit">
+              <Button type="primary" size="large" htmlType="submit" loading={loading}>
                 Submit
               </Button>
             </Form.Item>
