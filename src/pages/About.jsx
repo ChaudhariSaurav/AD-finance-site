@@ -6,17 +6,17 @@ import FAQ from "../pages/FAQ";
 
 const { Title, Paragraph } = Typography;
 
-// LeaderCard component remains the same
+// LeaderCard component for team members
 function LeaderCard({ name, title, imageUrl, description }) {
   return (
     <Col xs={24} sm={12} md={8}>
       <Card
         hoverable
-        className="p-4 border border-gray-200 rounded-lg shadow-md"
+        className="p-4 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105"
       >
-        <img alt={name} src={imageUrl} className="w-full h-auto rounded-lg" />
+        <img alt={name} src={imageUrl} className="w-full h-auto rounded-lg mb-4" />
         <Card.Meta title={name} description={title} />
-        <Paragraph className="mt-4 text-sm">{description}</Paragraph>
+        <Paragraph className="mt-2 text-sm text-gray-700">{description}</Paragraph>
       </Card>
     </Col>
   );
@@ -32,20 +32,21 @@ function About() {
     <>
       <div className="container mx-auto px-4 py-8">
         <motion.div initial="hidden" animate="visible" variants={fadeAnimation}>
-          <Title level={2} className="text-center text-orange-500 mb-6">
+          <Title level={2} className="text-center text-orange-600 mb-6">
             About Us
           </Title>
-          <Row gutter={[16, 16]}>
-            <Col xs={24} sm={24} md={12}>
-              <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
+          
+          <Row gutter={[16, 16]} className="mb-8">
+            <Col xs={24} sm={12} md={8}>
+              <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <Title level={4}>Established</Title>
-                <Paragraph>2024</Paragraph>
+                <Paragraph className="text-gray-600">2024</Paragraph>
               </Card>
             </Col>
-            <Col xs={24} sm={24} md={12}>
-              <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
+            <Col xs={24} sm={12} md={8}>
+              <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <Title level={4}>Founders</Title>
-                <Paragraph>
+                <Paragraph className="text-gray-600">
                   Mr. Abhishek Kumar (Founder & Managing Director)
                   <br />
                   Mr. Keshav Kumar (Founder & CEO)
@@ -53,36 +54,37 @@ function About() {
               </Card>
             </Col>
           </Row>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
+
+          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
             <Title level={4}>About AD Finance</Title>
-            <Paragraph>
+            <Paragraph className="text-gray-600">
               AD Finance is part of JR Groups, specializing in financial
               services since 2024. We are dedicated to securing your financial
               future through expertise and commitment.
             </Paragraph>
           </Card>
 
-          <Title level={2} className="text-center text-orange-500 mt-8 mb-6">
+          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
             Our Vision
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
-            <Paragraph>
+          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
+            <Paragraph className="text-gray-600">
               To provide premier financial solutions ensuring client prosperity
               and security.
             </Paragraph>
           </Card>
 
-          <Title level={2} className="text-center text-orange-500 mt-8 mb-6">
+          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
             Our Mission
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
-            <Paragraph>
+          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
+            <Paragraph className="text-gray-600">
               To deliver reliable financial services enabling clients to achieve
               financial goals with confidence and ease.
             </Paragraph>
           </Card>
 
-          <Title level={2} className="text-center text-orange-500 mt-8 mb-6">
+          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
             Leadership
           </Title>
           <Row gutter={[16, 16]}>
@@ -108,14 +110,14 @@ function About() {
             />
           </Row>
 
-          <Title level={2} className="text-center text-orange-500 mt-8 mb-6">
+          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
             Motto
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md">
-            <Paragraph className="text-orange-500 font-semibold">
+          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
+            <Paragraph className="text-orange-600 font-semibold">
               "Ensuring your financial future with JR Groups."
             </Paragraph>
-            <Paragraph>
+            <Paragraph className="text-gray-600">
               At AD Finance, we are dedicated to navigating your financial
               challenges and realizing your financial dreams. We provide
               tailored, comprehensive solutions to meet your unique needs.

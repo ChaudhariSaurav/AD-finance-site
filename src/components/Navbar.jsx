@@ -18,7 +18,7 @@ function Navbar() {
     {
       key: "login",
       label: "Login",
-      link: "https://ad-finance.netlify.app/",
+      link: "https://fiance.netlify.app/",
       external: true,
     },
   ];

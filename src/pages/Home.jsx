@@ -1,23 +1,45 @@
 import React from "react";
-import { Typography, Card } from "antd";
+import { Typography, Card, Row, Col } from "antd";
 import Footer from "../pages/footer";
 
 const { Title } = Typography;
+
+const teamMembers = [
+  {
+    name: "Mr. Abhishek Kumar",
+    position: "Founder & MD",
+    image: "https://ik.imagekit.io/laxmifinance/abhishek%20kumar.png?updatedAt=1720687001422",
+  },
+  {
+    name: "Mr. Keshav Kumar",
+    position: "Founder & CEO",
+    image: "https://ik.imagekit.io/laxmifinance/Keshav_kumar_?updatedAt=1720654289092", // Add an image URL for Keshav Kumar
+  },
+  // Add more team members as needed
+];
 
 function Home() {
   return (
     <>
       <div className="flex justify-center">
         <div>
-          <img
-            src="https://ik.imagekit.io/laxmifinance/abhishek%20kumar.png?updatedAt=1720687001422"
-            alt="Mr Abhishek Kumar"
-            className="w-50 h-60 rounded-full border border-1"
-          />
-          <p className="text-center mt-2 font-semibold">Mr. Abhishek Kumar</p>
-          <p className="mt-2 text-center font-bold">Founder & MD</p>
+          <Title level={3} className="text-center text-orange-700">Meet Our Team</Title>
         </div>
       </div>
+
+      <Row gutter={16} className="container mx-auto px-4 py-8">
+        {teamMembers.map((member, index) => (
+          <Col xs={24} sm={12} md={8} key={index} className="flex flex-col items-center mb-4">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-36 h-36 rounded-full border border-1"
+            />
+            <p className="text-center mt-2 font-semibold">{member.name}</p>
+            <p className="mt-2 text-center font-bold">{member.position}</p>
+          </Col>
+        ))}
+      </Row>
 
       <div className="container mx-auto px-4 py-8">
         <Title level={2} className="text-center text-orange-700">
