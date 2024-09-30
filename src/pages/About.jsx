@@ -1,23 +1,19 @@
 import React from "react";
-import { Typography, Card, Row, Col } from "antd";
+import { Typography, Row, Col, Button } from "antd";
 import { motion } from "framer-motion";
 import Footer from "../pages/footer";
 import FAQ from "../pages/FAQ";
 
 const { Title, Paragraph } = Typography;
 
-// LeaderCard component for team members
-function LeaderCard({ name, title, imageUrl, description }) {
+function LeaderCard({ name, title, description }) {
   return (
     <Col xs={24} sm={12} md={8}>
-      <Card
-        hoverable
-        className="p-4 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-      >
-        <img alt={name} src={imageUrl} className="w-full h-auto rounded-lg mb-4" />
-        <Card.Meta title={name} description={title} />
+      <div className="p-4 border border-gray-200 rounded-lg shadow-lg">
+        <Title level={4}>{name}</Title>
+        <Paragraph>{title}</Paragraph>
         <Paragraph className="mt-2 text-sm text-gray-700">{description}</Paragraph>
-      </Card>
+      </div>
     </Col>
   );
 }
@@ -30,99 +26,80 @@ function About() {
 
   return (
     <>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8" style={{ backgroundColor: "#ffffff" }}>
         <motion.div initial="hidden" animate="visible" variants={fadeAnimation}>
-          <Title level={2} className="text-center text-orange-600 mb-6">
+          <Title level={2} className="text-center text-blue-600 mb-6">
             About Us
           </Title>
-          
+
           <Row gutter={[16, 16]} className="mb-8">
             <Col xs={24} sm={12} md={8}>
-              <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="p-4 border border-gray-200 rounded-lg shadow-md">
                 <Title level={4}>Established</Title>
                 <Paragraph className="text-gray-600">2024</Paragraph>
-              </Card>
+              </div>
             </Col>
             <Col xs={24} sm={12} md={8}>
-              <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="p-4 border border-gray-200 rounded-lg shadow-md">
                 <Title level={4}>Founders</Title>
                 <Paragraph className="text-gray-600">
                   Mr. Abhishek Kumar (Founder & Managing Director)
                   <br />
                   Mr. Keshav Kumar (Founder & CEO)
                 </Paragraph>
-              </Card>
+              </div>
             </Col>
           </Row>
 
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
+          <div className="p-4 border border-gray-200 rounded-lg shadow-md mb-8">
             <Title level={4}>About AD Finance</Title>
             <Paragraph className="text-gray-600">
-              AD Finance is part of JR Groups, specializing in financial
-              services since 2024. We are dedicated to securing your financial
-              future through expertise and commitment.
+              AD Finance is part of JR Groups, specializing in financial services since 2024. We are dedicated to securing your financial future through expertise and commitment.
             </Paragraph>
-          </Card>
+            <Button type="primary" className="mt-2" style={{ backgroundColor: "#1890ff", borderColor: "#1890ff" }}>
+              Learn More
+            </Button>
+          </div>
 
-          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
+          <Title level={2} className="text-center text-blue-600 mt-8 mb-6">
             Our Vision
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
-            <Paragraph className="text-gray-600">
-              To provide premier financial solutions ensuring client prosperity
-              and security.
-            </Paragraph>
-          </Card>
+          <Paragraph className="text-gray-600">
+            To provide premier financial solutions ensuring client prosperity and security.
+          </Paragraph>
 
-          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
+          <Title level={2} className="text-center text-blue-600 mt-8 mb-6">
             Our Mission
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
-            <Paragraph className="text-gray-600">
-              To deliver reliable financial services enabling clients to achieve
-              financial goals with confidence and ease.
-            </Paragraph>
-          </Card>
+          <Paragraph className="text-gray-600">
+            To deliver reliable financial services enabling clients to achieve financial goals with confidence and ease.
+          </Paragraph>
 
-          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
+          <Title level={2} className="text-center text-blue-600 mt-8 mb-6">
             Leadership
           </Title>
           <Row gutter={[16, 16]}>
             <LeaderCard
               name="Mr. Abhishek Kumar"
               title="Founder & Managing Director"
-              imageUrl="https://ik.imagekit.io/laxmifinance/abhishek%20kumar.png?updatedAt=1720687001422"
-              description="Mr. Abhishek Kumar plays a pivotal role in the strategic
-                  direction and overall management of AD Finance. He is
-                  responsible for overseeing the company's growth, financial
-                  strategy, and operations. Abhishek is a dedicated and passionate
-                  leader who is committed to delivering exceptional results for
-                  our clients."
+              description="Mr. Abhishek Kumar plays a pivotal role in the strategic direction and overall management of AD Finance. He is responsible for overseeing the company's growth, financial strategy, and operations. Abhishek is a dedicated and passionate leader committed to delivering exceptional results for our clients."
             />
             <LeaderCard
               name="Mr. Keshav Kumar"
               title="Founder & CEO"
-              imageUrl="https://ik.imagekit.io/laxmifinance/Keshav_kumar_?updatedAt=1720654289092"
-              description="Mr. Keshav Kumar leads the company with a vision for growth and
-                  excellence in the financial sector. He has a strong background
-                  in financial management, planning, and analysis, providing
-                  valuable insights to clients."
+              description="Mr. Keshav Kumar leads the company with a vision for growth and excellence in the financial sector. He has a strong background in financial management, planning, and analysis, providing valuable insights to clients."
             />
           </Row>
 
-          <Title level={2} className="text-center text-orange-600 mt-8 mb-6">
+          <Title level={2} className="text-center text-blue-600 mt-8 mb-6">
             Motto
           </Title>
-          <Card className="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow mb-8">
-            <Paragraph className="text-orange-600 font-semibold">
-              "Ensuring your financial future with JR Groups."
-            </Paragraph>
-            <Paragraph className="text-gray-600">
-              At AD Finance, we are dedicated to navigating your financial
-              challenges and realizing your financial dreams. We provide
-              tailored, comprehensive solutions to meet your unique needs.
-            </Paragraph>
-          </Card>
+          <Paragraph className="text-blue-600 font-semibold">
+            "Ensuring your financial future with JR Groups."
+          </Paragraph>
+          <Paragraph className="text-gray-600">
+            At AD Finance, we are dedicated to navigating your financial challenges and realizing your financial dreams. We provide tailored, comprehensive solutions to meet your unique needs.
+          </Paragraph>
         </motion.div>
       </div>
       <FAQ />
